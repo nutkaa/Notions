@@ -133,12 +133,12 @@ const INTERVAL = 3000;//86400000;
 function dispalyQuote(){
 
     document.getElementById('widget').innerHTML = quotes[0];
-    quotes.forEach((quote, i) => {
-        setTimeout(() => {
-            document.getElementById('widget').innerHTML = quote;
-        }, INTERVAL);  
-    });
-    }
+    setTimeout(() => {
+        quotes.forEach((quote, i) => {
+                document.getElementById('widget').innerHTML = quote;
+        });
+    }, INTERVAL);  
+}
 dispalyQuote();
 
 

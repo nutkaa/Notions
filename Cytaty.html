@@ -135,16 +135,12 @@ function dispalyQuote(){
     document.getElementById('widget').innerHTML = quotes[0];
     quotes.forEach((quote, i) => {
         setTimeout(() => {
-            document.getElementById('widget').innerHTML =quote;
+            document.getElementById('widget').innerHTML = quote;
         }, INTERVAL);  
     });
     }
+dispalyQuote();
 
-    function dispalyWidget() {
-        dispalyQuote();
-        setTimeout(dispalyWidget, INTERVAL);
-    }
-    dispalyWidget()
 
 </script>
 

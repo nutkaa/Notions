@@ -137,7 +137,7 @@ function dispalyQuote(){
         quotes.forEach((quote, i) => {
             setTimeout(() => {
                 document.getElementById('widget').innerHTML = quote;
-            }, INTERVAL);
+            }, i*INTERVAL);
         });
     }, INTERVAL);  
 }

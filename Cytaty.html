@@ -135,7 +135,9 @@ function dispalyQuote(){
     document.getElementById('widget').innerHTML = quotes[0];
     setTimeout(() => {
         quotes.forEach((quote, i) => {
+            setTimeout(() => {
                 document.getElementById('widget').innerHTML = quote;
+            }, INTERVAL);
         });
     }, INTERVAL);  
 }

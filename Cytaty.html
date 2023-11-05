@@ -125,7 +125,7 @@ quotes=[
 "Jak Mnie umiłował Ojciec, tak i Ja was umiłowałem. Wytrwajcie w miłości mojej! Jeśli będziecie zachowywać moje przykazania, będziecie trwać w miłości mojej, tak jak Ja zachowałem przykazania Ojca mego i trwam w Jego miłości. (J 15,9-10)",
 ];
 
-const INTERVAL = 86400000000;
+const INTERVAL = 86400000;
 
 function dispalyQuote(){
 
@@ -133,13 +133,13 @@ function dispalyQuote(){
     quotes.forEach((quote, i) => {
         setTimeout(() => {
             document.getElementById('widget').innerHTML =quote;
-        }, i * INTERVAL);  
+        }, INTERVAL);  
     });
     }
 
     function dispalyWidget() {
         dispalyQuote();
-        setTimeout(dispalyWidget, quotes.length*INTERVAL);
+        setTimeout(dispalyWidget, INTERVAL);
     }
     dispalyWidget()
 

@@ -131,23 +131,31 @@
 
   // Funkcja do aktualizacji tekstu
   function updateText() {
-    // Aktualna data
+    // Aktualna data i godzina
     var currentDate = new Date();
     // Pobierz zapamiętaną datę
     var storedDate = localStorage.getItem('lastUpdate');
 
-    // Jeśli nie ma zapamiętanej daty lub jest inna niż aktualna data
-    if (!storedDate || currentDate.toDateString() !== new Date(storedDate).toDateString()) {
+    // Jeśli nie ma zapamiętanej daty lub minął już jeden dzień od ostatniej aktualizacji
+    if (!storedDate || daysBetween(currentDate, new Date(storedDate)) >= 1) {
       // Losowo wybierz cytat z tablicy
       var randomIndex = Math.floor(Math.random() * quotes.length);
       var newQuote = quotes[randomIndex];
 
       // Zaktualizuj tekst
-      document.getElementById('widget').innerText = newQuote;
+      document.getElementById('changingText').innerText = newQuote;
 
       // Zapisz aktualną datę
-      sessionStorage.setItem('lastUpdate', currentDate);
+      localStorage.setItem('lastUpdate', currentDate);
     }
+  }
+
+  // Funkcja do obliczania różnicy dni między dwiema datami
+  function daysBetween(date1, date2) {
+    // Jeden dzień w milisekundach
+    var oneDay = 24 * 60 * 60 * 1000;
+    // Różnica w dniach
+    return Math.abs((date1 - date2) / oneDay);
   }
 
   // Wywołaj funkcję przy ładowaniu strony
